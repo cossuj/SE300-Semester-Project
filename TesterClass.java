@@ -6,8 +6,25 @@ public class TesterClass {
 
 		// Input
 		String input = "";
+		
 		input = JOptionPane.showInputDialog("Enter a value:");
 		System.out.println("Input = " + input);
+		
+		//Input for WindSpeedCalculator & WindDirectionCalculator//
+		String gSpeed = "";
+		String airSpeed = "";
+		String course = "";
+		String heading = "";
+		
+		gSpeed = JOptionPane.showInputDialog("Enter a value for Ground Speed:");
+		airSpeed = JOptionPane.showInputDialog("Enter a value for Airspeed:");
+		course = JOptionPane.showInputDialog("Enter a value for Course (must be in degrees):");
+		heading = JOptionPane.showInputDialog("Enter a value for Heading (must be in degrees):");
+		
+		System.out.println("Ground Speed = " + gSpeed);
+		System.out.println("Airspeed = " + airSpeed);
+		System.out.println("Course = " + course);
+		System.out.println("Heading = " + heading);
 
 		// Distance Conversions
 		System.out.println("\nDistance Conversions");
@@ -51,5 +68,13 @@ public class TesterClass {
 		System.out.println("\nPressure Conversions");
 		System.out.println("Inches Mercury to Millibars = " + PressureUnitConverter.convertFromInchesMercuryToMillibars(input));
 		System.out.println("Millibars to Inches Mercury = " + PressureUnitConverter.convertFromMillibarsToInchesMercury(input));
+	
+		// Wind Speed
+		System.out.println("\nWind Speed");
+		System.out.println("The wind speed is "+ WindSpeedCalculator.calculateWindSpeed(gSpeed, airSpeed, course, heading));
+	
+		// Wind Direction
+		System.out.println("\nWind Direction");
+		System.out.println("The wind direction is "+ WindDirectionCalculator.calculateWindDirection(gSpeed, airSpeed, course, heading));
 	}
 }
