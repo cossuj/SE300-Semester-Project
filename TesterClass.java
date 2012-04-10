@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class TesterClass {
 
 	public static void main(String[] args) {
-
+/*
 		// Test
 		
 		// Input
@@ -78,5 +78,13 @@ public class TesterClass {
 		// Wind Direction
 		System.out.println("\nWind Direction");
 		System.out.println("The wind direction is "+ WindDirectionCalculator.calculateWindDirection(gSpeed, airSpeed, course, heading));
+	*/
+		//Airport file reading
+		AirportManager airportCode = new AirportManager();
+		airportCode.loadDataFromFile();
+		airportCode.readDataFromFile();
+		airportCode.closeDataFromFile();
+		
+	
 	}
 }
