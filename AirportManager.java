@@ -6,14 +6,13 @@ public  class AirportManager {
 	
 	private static Scanner x;
 	int i = 0;
-	
 	// created an array of airport objects to save airports to:
-	public Airport[] airportList = new Airport[20];
+	AirportList airportList = new AirportList();
+	String[] threeLetterCode = new String[50];
+	Double[] latitude = new Double[50];
+	Double[] longitude = new Double[50];
 	
-	
-	
-	
-	public  void loadDataFromFile(){
+	public void loadDataFromFile(){
 		try{
 			x = new Scanner(new File("airportData.txt"));
 		}
@@ -22,7 +21,7 @@ public  class AirportManager {
 		}
 	}
 	
-	public  void readDataFromFile(){
+	public void readDataFromFile(){
 		while (x.hasNext()){
 			String a = x.next();
 			String b = x.next();
@@ -31,15 +30,16 @@ public  class AirportManager {
 			//Create a new airport object
 			Airport y = new Airport(a, Double.parseDouble(b), Double.parseDouble(c));
 			
-			//add airport object "y" to airportList array
-			airportList[i].add(y);
+			threeLetterCode[i] = a;
+			latitude[i]=Double.parseDouble(b);
+			longitude[i]=Double.parseDouble(c);
+		
+			System.out.printf("Airport "+i+":\t"+ threeLetterCode[i]+"  "+latitude[i]+"  "+longitude[i]+"\n");
 			i++;
-			//Stephen - I am not sure why this isn't working. I feel like everything is there but not sure.
-			System.out.println(airportList);
-			System.out.printf("The airport code is: %s\t%s\t%s\n",a,b,c);
 		}
-	}
-	
+		double newLatitude = latitude[0] + latitude[1];
+		System.out.println("the new latitude is: "+ newLatitude);
+	}	
 	public void closeDataFromFile(){
 			x.close();
 	}

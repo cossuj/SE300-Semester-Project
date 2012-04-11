@@ -34,9 +34,4 @@ public class Airport {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-
-	public void add(Airport y) {
-		// TODO Auto-generated method stub
-		
-	}
 }
